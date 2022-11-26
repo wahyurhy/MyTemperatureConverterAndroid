@@ -139,15 +139,15 @@ fun TwoWayConverterApp(modifier: Modifier = Modifier) {
             text = stringResource(id = R.string.two_way_converter),
             style = MaterialTheme.typography.h5
         )
+        GeneralTemperatureInput(scale = Scale.CELCILUS, input = celcius, onValueChange = { newInput ->
+            celcius = newInput
+            fahrenheit = convertToFahrenheit(newInput)
+        })
+        GeneralTemperatureInput(scale = Scale.FAHRENHEIT, input = fahrenheit, onValueChange = { newInput ->
+            fahrenheit = newInput
+            celcius = convertToCelcius(newInput)
+        })
     }
-    GeneralTemperatureInput(scale = Scale.CELCILUS, input = celcius, onValueChange = { newInput ->
-        celcius = newInput
-        fahrenheit = convertToFahrenheit(newInput)
-    })
-    GeneralTemperatureInput(scale = Scale.FAHRENHEIT, input = fahrenheit, onValueChange = { newInput ->
-        fahrenheit = newInput
-        celcius = convertToCelcius(newInput)
-    })
 
 }
 
